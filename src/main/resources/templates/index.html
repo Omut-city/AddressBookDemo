@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body onload="initBody()" >
+<div th:replace="header :: content"></div>
+
+<div  class="container center-block">
+    <br>
+    <h2>My Contacts</h2>
+    <p>
+        This is a simple example of Contacts book.
+    </p>
+
+    <h2>Task</h2>
+    <p>
+        Build a java application to add, display and remove contacts from an address book. The address book has mandatory fields:<br>
+    <ul>
+        <li>Name</li>
+        <li>Surname</li>
+        <li>Telephone number</li>
+        <li>Email</li>
+    </ul>
+    </p>
+
+    <p>
+        It can have also optional fields:<br>
+    <ul>
+        <li>Age</li>
+        <li>Hair color</li>
+    </ul>
+    </p>
+
+    <p>
+        Each contact can belong to 3 different categories:
+    <ul>
+        <li>Friends</li>
+        <li>Family</li>
+        <li>Acquaintance</li>
+    </ul>
+    </p>
+
+    <p>
+        Each category has a name. The “family” category has a description indicating the family’s relationship
+        (parent, granparent, son/daughter, aunt/uncle). The “friends”category has a field indicating the number
+        of friendship’s years.
+    </p>
+
+    <p>
+        The user is able, throught the command line, to add, display, remove or edit the contacts and each one
+        of their properties. The contacts and the related information are saved in 1 (or more) txt file(s). When all
+        the contacts are displayed, sort them alphabetically by surname.
+    </p>
+
+    <h2>Solution</h2>
+    <p>This simple web application based on Java 11 and many frameworks:
+    <ul>
+    <li>SpringBoot</li>
+    <li>Spring MVC</li>
+    <li>Spring Data</li>
+    <li>Hibernate</li>
+    <li>FlyWay</li>
+    <li>H2 embedded in memory database</li>
+    <li>Lombok</li>
+    <li>Thymeleaf</li>
+    <li>Bootstrap</li>
+    <li>Javascript</li>
+</ul>
+    </p>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>

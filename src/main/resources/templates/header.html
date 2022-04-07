@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<body>
+<div th:fragment="content" class="container center-block">
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="nav-link navbar-brand active" aria-current="page" href="/">My contacts</a>
+            <a class="nav-link" href="/contacts/addContactForm">Add contact</a>
+            <a class="nav-link" href="/contacts/view">View contacts</a>
+
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="/categories/view">View</a></li>
+                    <li><a class="dropdown-item" href="/categories/addCategoryForm">Add Category</a></li>
+                </ul>
+            </div>
+
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <form class="d-flex" method="post" action="/contacts/search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="pattern">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

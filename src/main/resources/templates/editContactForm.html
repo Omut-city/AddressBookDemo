@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body>
+<div th:replace="header :: content"></div>
+
+<br>
+<div class="container center-block">
+    <h2 class="container center-block">Edit contact</h2>
+    <br>
+    <form method="post" action="/contacts/editContact">
+        <input type="hidden" name="id" th:value="${contact.id}"/>
+
+        <div class="mb-3">
+            <label for="form_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter name here" onblur="checkName()"
+                   id="form_name" name="name" th:value="${contact.name}">
+            <span id="name_comment" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="form_surname" class="form-label">Surname:</label>
+            <input type="text" class="form-control" placeholder="Enter surname here" onblur="checkSurname()"
+                   id="form_surname" name="surname" th:value="${contact.surname}">
+            <div id="surname_comment" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="form_email" class="form-label">Email:</label>
+            <input type="text" class="form-control" placeholder="Enter email here" onblur="checkEmail()"
+                   id="form_email" name="email" th:value="${contact.email}">
+            <div id="email_comment" class="text-danger"></div>
+        </div>
+
+        <div class="mb-3">
+            <label for="form_phone" class="form-label">Phone number:</label>
+            <input type="text" class="form-control" placeholder="Enter phone number here" onblur="checkPhone()"
+                   id="form_phone" name="phone" th:value="${contact.phone}">
+            <div id="phone_comment" class="text-danger"></div>
+        </div>
+
+        <div class="container mb-3">
+            <label for="inputBirthdaySelect">Birthday</label>
+            <div class="d-flex flex-row justify-content-between" id="inputBirthdaySelect">
+                <div class="input-group mb-3 block">
+                    <label class="input-group-text" for="year">Year</label>
+                    <select class="form-select" id="year" name="year">
+                        <option selected disabled>Choose year of birth</option>
+                        <option th:each = "year, iter : ${years}" th:value="${year}" th:text="${year}"></option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 block">
+                    <label class="input-group-text" for="month">Month</label>
+                    <select class="form-select" id="month" name="month">
+                        <option selected disabled>Choose month of birth</option>
+                        <option th:each = "month, iter : ${months}" th:value="${iter.count}" name="month" th:text="${month}"></option>
+                    </select>
+                </div>
+                <div class="input-group mb-3 block">
+                    <label class="input-group-text" for="day">Day</label>
+                    <select class="form-select" id="day" name="day">
+                        <option selected disabled>Choose day of birth</option>
+                        <option th:each = "day, iter : ${days}" th:value="${day}" name="day" th:text="${day}"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="categoryId">Category</label>
+            <select class="form-select" id="categoryId" name="categoryId" onblur="checkSelectCategory()">
+                <option selected id="empty_category" disabled>Choose category</option>
+                <option th:each = "category, iter : ${categories}" th:value="${category.id}" name="categoryId" th:text="${category.name}"></option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="categoryId">Category property</label>
+            <select class="form-select" id="propertyId" name="categoryPropertyId" disabled >
+                <option selected id="empty_property" disabled>Choose property</option>
+                <option th:each = "property, iter : ${properties}" th:value="${property.getCategoryPropertyId()}" name="categoryPropertyId" th:text="${property.name}" ></option>
+            </select>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="form_gender" class="form-label">Gender:</label>
+            <div id="form_gender">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="form_gender_male" value="MALE" onblur="checkGender()">
+                    <label class="form-check-label" for="form_gender_male">MALE</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="form_gender_female" value="FEMALE" onblur="checkGender()">
+                    <label class="form-check-label" for="form_gender_female">FEMALE</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button id="form_submit" class="btn btn-outline-primary" disabled>Save contact</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>

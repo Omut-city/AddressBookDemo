@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body>
+<div th:replace="header :: content"></div>
+
+<br>
+<div class="container center-block">
+    <h2 class="container center-block">Add new property for category: <span id="category_name" th:value="${category.name}" th:utext="${category.name}"></span></h2>
+    <br>
+    <form method="post" action="/properties/addProperty">
+        <input type="hidden" name="categoryId" id="category_id" th:value="${category.id}"/>
+
+            <ul class="sm-1" th:each = "propetry, iter : ${category.getProperties()}">
+                <li  class="sm-1" th:utext="${propetry.name}">...</li>
+            </ul>
+
+        <div class="mb-3">
+            <label for="form_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter property name here" onblur="checkPropertyName()" id="form_name" name="name">
+            <span id="name_comment" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <button id="form_submit" class="btn btn-outline-primary" disabled>Add new property</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>

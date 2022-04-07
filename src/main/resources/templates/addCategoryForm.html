@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body>
+<div th:replace="header :: content"></div>
+
+<br>
+<div class="container center-block">
+    <h2 class="container center-block">Add new category</h2>
+    <br>
+    <form method="post" action="/categories/addCategory">
+
+        <div class="mb-3">
+            <label for="form_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" placeholder="Enter name here" onblur="checkCategoryName()" id="form_name" name="name">
+            <span id="name_comment" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <button id="form_submit" class="btn btn-outline-primary" disabled>Add new category</button>
+        </div>
+    </form>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>

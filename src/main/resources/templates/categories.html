@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body>
+<div th:replace="header :: content"></div>
+
+<br>
+<div  class="container center-block">
+    <div th:replace="pageCategoryNavigator :: content"></div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Properties</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "category, iter : ${categories}">
+            <th scope="row" th:utext="${iter.count}">...</td>
+            <td th:utext="${category.name}">...</td>
+            <td th:utext="${category.getPropertyNames()}">...</td>
+<!--            <td th:utext="${category.properties?.size()}">...</td>-->
+            <td>
+                <a class="link-warning" th:href="@{/properties/addPropertyForm/{linkTitle}(linkTitle=${category.id})}">Add property</a> |
+                <a class="link-warning" th:href="@{/categories/editCategoryForm/{linkTitle}(linkTitle=${category.id})}">Edit</a> |
+                <a class="link-danger" th:href="@{/categories/deleteCategory/{linkTitle}(linkTitle=${category.id})}"
+                   onclick="return confirm('Do you confirm you really want to delete this category?') ? true: false;">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>

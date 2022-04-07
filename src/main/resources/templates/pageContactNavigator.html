@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<body>
+<div th:fragment="content" class="container center-block">
+    <h2 class="container center-block">List contacts:
+        <span th:text="${#lists.size(contacts)}" remove="tag">[0]</span> from
+        <span th:text="${amount}"></span> records. Page
+        <span th:text="${page}"></span> size
+        <span th:text="${pageSize}"></span>
+    </h2>
+    <br>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/contacts/view?page=0">First</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 6)}">Previous</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 3)}"><span th:text="${page} - 3"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 2)}"><span th:text="${page} - 2"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 1)}"><span th:text="${page} - 1"></span></a></li>
+            <li class="page-item active"><a class="page-link" th:href="@{/contacts/view(page=${page})}"><span th:text="${page}"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 1)}"><span th:text="${page} + 1"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 2)}"><span th:text="${page} + 2"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 3)}"><span th:text="${page} + 3"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 6)}">Next</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${last})}">Last</a></li>
+        </ul>
+    </nav></div>
+</body>
+</html>

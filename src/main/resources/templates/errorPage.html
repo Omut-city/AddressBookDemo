@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="head :: content"></head>
+
+<body onload="initBody()" >
+<div th:replace="header :: content"></div>
+
+<div  class="container center-block">
+    <br>
+    <h2>Error</h2>
+    <p><span th:text="${error}"></span></p>
+</div>
+
+<div th:replace="footer :: content"></div>
+</body>
+</html>
