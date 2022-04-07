@@ -19,9 +19,9 @@ public interface ContactRepository extends JpaRepository<ContactEntity, Integer>
 
     @Query("select entity from contact entity " +
             "where entity.name like %:name% " +
-            "or entity.surname like :surname " +
-            "or entity.email like :email " +
-            "or entity.phone like :phone")
+            "or entity.surname like %:surname% " +
+            "or entity.email like %:email% " +
+            "or entity.phone like %:phone%")
     List<ContactEntity> searchByPattern(@Param("name") String name,
                                         @Param("surname") String surname,
                                         @Param("email") String email,

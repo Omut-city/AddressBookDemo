@@ -1,4 +1,4 @@
-INSERT INTO testdb.property (id,"name",category_id)
+INSERT INTO testdb.property (id, name, category_id)
 VALUES
     (1,'Mother',3),
     (2,'Father',3),

@@ -1,4 +1,4 @@
-INSERT INTO testdb.category (id,"name")
+INSERT INTO testdb.category (id, name)
 VALUES
     (1,'Acquaintance'),
     (2,'Сolleagues'),
