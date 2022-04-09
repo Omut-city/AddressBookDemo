@@ -11,15 +11,15 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item"><a class="page-link" href="/contacts/view?page=0">First</a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 6)}">Previous</a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 3)}"><span th:text="${page} - 3"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 2)}"><span th:text="${page} - 2"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 1)}"><span th:text="${page} - 1"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 6)}" th:if="${page} - 6 >= 0">Previous</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 3)}" th:if="${page} - 3 >= 0"><span th:text="${page} - 3"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 2)}" th:if="${page} - 2 >= 0"><span th:text="${page} - 2"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} - 1)}" th:if="${page} - 1 >= 0"><span th:text="${page} - 1"></span></a></li>
             <li class="page-item active"><a class="page-link" th:href="@{/contacts/view(page=${page})}"><span th:text="${page}"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 1)}"><span th:text="${page} + 1"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 2)}"><span th:text="${page} + 2"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 3)}"><span th:text="${page} + 3"></span></a></li>
-            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 6)}">Next</a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 1)}" th:if="${page} + 1 < ${amount} / ${pageSize}"><span th:text="${page} + 1"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 2)}" th:if="${page} + 2 < ${amount} / ${pageSize}"><span th:text="${page} + 2"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 3)}" th:if="${page} + 3 < ${amount} / ${pageSize}"><span th:text="${page} + 3"></span></a></li>
+            <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${page} + 6)}" th:if="${page} + 6 < ${amount} / ${pageSize}">Next</a></li>
             <li class="page-item"><a class="page-link" th:href="@{/contacts/view(page=${last})}">Last</a></li>
         </ul>
     </nav></div>
